@@ -28,6 +28,15 @@ class App extends Component {
     })
   }
 
+  deleteBookmark = bookmarkId => {
+    const newBookmarks = this.state.bookmarks.filter(
+      bookmark => bookmark.id !== bookmarkId
+    )
+    this.setState({
+      bookmarks: newBookmarks
+    })
+  }
+
   componentDidMount() {
     fetch(config.API_ENDPOINT, {
       method: 'GET',
@@ -50,7 +59,8 @@ class App extends Component {
     
     const contextValue = {
       bookmarks: this.state.bookmarks,
-      addBookmark: this.addBookmark
+      addBookmark: this.addBookmark,
+      deleteBookmark: this.deleteBookmark,
     }
 
     return (
@@ -69,7 +79,6 @@ class App extends Component {
               component={BookmarkList}
             />
           </div>
-          <Rating value={5}/>
         </BookmarksContext.Provider>
       </main>
     );

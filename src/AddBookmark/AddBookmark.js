@@ -42,7 +42,6 @@ class AddBookmark extends Component {
             throw error
           })
         }
-        console.log(res)
         return res.json()
       })
       .then(data => {
