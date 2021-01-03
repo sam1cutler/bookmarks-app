@@ -39,12 +39,6 @@ class App extends Component {
   updateBookmark = () => {};
 
   componentDidMount() {
-    console.log('top of componentdidmount')
-    console.log(`Able to access the config TEST being ${config.TEST}`)
-    console.log(`Able to access config API_KEY being ${config.API_KEY}`)
-    console.log(`Access test2 value ${config.TEST2}`)
-    console.log(`Will fetch ${config.API_ENDPOINT}/api/bookmarks`)
-    console.log(`Will attempt to use an Authorization header with 'Bearer ${config.API_KEY}'.`)
     fetch(config.API_ENDPOINT+`/api/bookmarks`, {
       method: 'GET',
       headers: {
@@ -53,7 +47,6 @@ class App extends Component {
       }
     })
       .then(res => {
-        console.log('fetch was attempted')
         if (!res.ok) {
           throw new Error(res.status)
         }
