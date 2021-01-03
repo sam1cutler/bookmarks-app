@@ -42,6 +42,7 @@ class AddBookmark extends Component {
             throw error
           })
         }
+        console.log(res)
         return res.json()
       })
       .then(data => {
@@ -49,7 +50,7 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
-        this.context.AddBookmark(data)
+        this.context.addBookmark(data)
         this.props.history.push('/')
       })
       .catch(error => {
