@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import PropTypes from 'prop-types';
 import BookmarksContext from '../BookmarksContext';
@@ -49,6 +50,10 @@ export default function BookmarkItem(props) {
             {props.description}
           </p>
           <div className='BookmarkItem__buttons'>
+            <Link to={`/edit/${props.id}`} className='BookmarkItem__edit'>
+              Edit Bookmark
+            </Link>
+            {' '}
             <button
               className='BookmarkItem__description'
               onClick={() => {
